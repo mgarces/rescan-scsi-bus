@@ -178,7 +178,8 @@ sgdevice26 ()
 SGDEV=`basename $SGDEV`; return
       fi
     done
-    SGDEV=""SGDEV  fi  
+    SGDEV="SGDEV"
+  fi
 }
 
 # Find sg device with 2.4 report-devs extensions
@@ -329,7 +330,7 @@ target=
 break
       fi
     done
-    if test -n "$target" ;test then
+    if test -n "$target" ; then
       idsearch="$idsearch $target"
     fi
   done
@@ -618,7 +619,7 @@ if test ! -d /sys/class/scsi_host/ -a ! -d /proc/scsi/; then
 fi
 
 # Make sure sg is there
-modprobe sg >/dev/nulll 2>&1
+modprobe sg >/dev/null 2>&1
 
 if test -x /usr/bin/sg_inq; then
     sg_version=$(sg_inq -V 2>&1 | cut -d " " -f 3)
@@ -751,3 +752,4 @@ echo "$rmvd device(s) removed.                 "
 # Local Variables:
 # sh-basic-offset: 2
 # End:
+####  vim: ft=sh :
